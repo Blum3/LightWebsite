@@ -1,0 +1,77 @@
+html,
+body {
+    margin: 0;
+    background: radial-gradient(ellipse at center, #000 60%, #020014 100%);
+    /* fixed background when scrolling */
+    background-attachment: fixed;
+    color: #3fff5f;
+    font-family: monospace;
+}
+
+/* center content on desktop */
+body {
+    font-family: "Workbench", "Sixtyfour", monospace;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    line-height: 1.1;
+}
+
+.main-content {
+    max-width: 33%;
+}
+
+.titles {
+    font-size: x-large;
+    text-align: center;
+}
+
+.ascii {
+    font-size: small;
+    text-align: center;
+    display: block;
+    line-height: normal;
+}
+
+.projects-section {
+    text-align: center;
+}
+
+.project-title {
+    font-size: x-large;
+}
+
+.project {
+    text-align: center;
+}
+
+.project-img {
+    width: 60%;
+}
+
+a {
+    color: rgb(0, 183, 255);
+}
+
+
+
+summary {
+    cursor: pointer;
+    /* no text selection */
+    user-select: none;
+    list-style: none;
+}
+
+summary::marker {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .main-content {
+        max-width: 100%;
+    }
+
+    .project-img {
+        width: 90%;
+    }
+}
