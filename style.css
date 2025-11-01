@@ -61,6 +61,23 @@ a {
     color: rgb(0, 183, 255);
 }
 
+/* ASCII music icon box */
+  #music-box {
+    text-align: center;
+    user-select: none;
+    padding: 15px;
+    white-space: pre;
+    cursor: pointer;
+    transition: 0.1s;
+  }
+
+  /* Hover flicker effect */
+  #music-box:hover {
+    text-shadow: 0 0 6px #00ff00;
+  }
+
+
+
 
 
 summary {
