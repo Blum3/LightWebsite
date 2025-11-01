@@ -13,7 +13,8 @@ body {
     font-family: "Workbench", "Sixtyfour", monospace;
     display: flex;
     justify-content: center;
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     line-height: 1.1;
 }
 
@@ -26,14 +27,21 @@ body {
     text-align: center;
 }
 
+.side-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 .ascii {
+    white-space: pre;
     font-size: small;
     text-align: center;
     display: block;
     line-height: normal;
+    line-height: 1;
 }
 
-.projects-section {
+.centered-text {
     text-align: center;
 }
 
@@ -64,6 +72,11 @@ summary {
 
 summary::marker {
     display: none;
+}
+
+summary::marker,
+summary::-webkit-details-marker {
+  display: none;
 }
 
 @media (max-width: 600px) {
