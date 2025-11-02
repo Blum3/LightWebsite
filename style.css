@@ -45,8 +45,16 @@ body {
     text-align: center;
 }
 
+.left-centered-text {
+    text-align: left;
+}
+
 .project-title {
     font-size: x-large;
+}
+
+.project-title:hover::before {
+    content: "> "
 }
 
 .project {
@@ -85,7 +93,10 @@ summary {
     /* no text selection */
     user-select: none;
     list-style: none;
+    margin: none;
+    padding: none;
 }
+
 
 summary::marker {
     display: none;
@@ -95,6 +106,7 @@ summary::marker,
 summary::-webkit-details-marker {
   display: none;
 }
+
 
 @media (max-width: 600px) {
     .main-content {
