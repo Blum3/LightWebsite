@@ -10,7 +10,7 @@ body {
 
 /* center content on desktop */
 body {
-    font-family: "Workbench", "Sixtyfour", monospace;
+    font-family: "Workbench", monospace;
     display: flex;
     justify-content: center;
     padding-top: 2rem;
