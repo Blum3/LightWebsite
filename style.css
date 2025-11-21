@@ -41,6 +41,10 @@ body {
     line-height: 1;
 }
 
+.small-text {
+    font-size: small;
+}
+
 .centered-text {
     text-align: center;
 }
@@ -51,6 +55,10 @@ body {
 
 .project-title {
     font-size: x-large;
+}
+
+.project-title:hover {
+    text-shadow: 0 0 2px #3fff5f; /* Lueur au survol */
 }
 
 .project-title:hover::before {
@@ -67,6 +75,10 @@ body {
 
 a {
     color: rgb(0, 183, 255);
+}
+
+a:hover {
+    text-shadow: 0 0 5px rgb(0, 183, 255); /* Lueur au survol */
 }
 
 /* ASCII music icon box */
