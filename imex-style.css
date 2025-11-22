@@ -1,0 +1,519 @@
+/* style.css */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    margin: 0;
+    background-color: #000000;
+    /* fixed background when scrolling */
+    background-attachment: fixed;
+    color: #3fff5f;
+    font-family: "Workbench", monospace;
+}
+
+.main-container {
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0 0;
+    display: flex;
+}
+
+.items-collect {
+    flex-grow: 1;
+    padding: 40px 0;
+    overflow-y: scroll;
+}
+
+/** single post **/
+.items-main-container {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
+    justify-content: center;
+}
+
+.item-clickable {
+    width: 500px;
+    transition: box-shadow .2s;
+    cursor: pointer;
+    border: 1px solid #2e2e2e;
+    background: #3fff5f;
+    transition: 1s;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+.item-clickable:hover {
+    box-shadow: 0 0 20px #3fff5f;
+}
+
+.item-img-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    height: 500px;
+    width: 500px;
+}
+
+.item-img-area img {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+    position: absolute;
+    /* Stack the images */
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease;
+    /* Smooth transition for opacity */
+}
+
+.item-img-area #photo {
+    opacity: 0;
+    object-fit: cover;
+} 
+
+.item-clickable:hover .item-img-area #photo {
+    opacity: 1;
+}
+
+.item-clickable:hover .item-img-area #drawing {
+    opacity: 0;
+}
+
+.category-name {
+    font-family: monospace;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #fff;
+    padding: 4px 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.theme-name {
+    font-family: monospace;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 4px 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.item-content {
+    padding: 25px 25px 20px 25px;
+}
+
+.item-content h2 {
+    color: #000;
+    font-size: 22px;
+    padding-top: 12px;
+    font-weight: 400;
+}
+
+/* General Styles for the content Sidebar */
+#item-sidebar {
+    width: calc(100% - 840px);
+    padding: 40px 60px;
+    background-color: #000000;
+    box-sizing: border-box;
+    overflow-y: scroll;
+
+    /* Initialement masqué */
+    display: none;
+}
+
+#item-sidebar h2 {
+    font-size: 70px;
+    color: #3fff5f;
+}
+
+#item-sidebar h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    color: #3fff5f;
+}
+
+.item-section {
+    margin-bottom: 30px;
+}
+
+.item-section img {
+    max-width: 40%;
+    height: auto;
+    object-fit: contain;
+    margin-left: 30%;
+    background-color: #3fff5f;
+}
+
+.section-content {
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.caption {
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+}
+
+.back-button {
+    font-family: monospace;
+    background-color: #000;
+    color: #3fff5f;
+    border-color: #3fff5f;
+    padding: 5px;
+    display: none;
+    /* only mobile via Media Query */
+}
+
+
+
+/* General Styles for the Filter Sidebar */
+.filter-sidebar {
+    width: 300px;
+    padding: 40px 20px;
+    background-color: #000000;
+    border-right: 1px solid #3fff5f;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.filter-sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #3fff5f;
+}
+
+.filter-sidebar h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #3fff5f;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section .search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #3fff5f;
+    background-color: #000;
+    color: #3fff5f;
+}
+
+.filter-sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.filter-sidebar li {
+    font-family: monospace;
+    padding: 8px;
+    cursor: pointer;
+    margin: 5px 0;
+    transition: background-color 0.3s;
+}
+
+.filter-sidebar li:hover {
+    background-color: #3fff5f;
+    color: #000;
+}
+
+.filter-sidebar li.active {
+    font-weight: bold;
+}
+
+.filter-sidebar label {
+    font-size: 14px;
+    color: #3fff5f;
+    display: block;
+}
+
+.filter-sidebar input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Styling for Category and Theme Filters */
+.category-list,
+.theme-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Fallbacks */
+.category-list li.active,
+.theme-list li.active {
+    background-color: #3fff5f;
+    color: #000;
+}
+
+.filter-sidebar input[type="checkbox"] {
+    accent-color: #3fff5f; /* Rend la case à cocher verte si le navigateur le permet */
+    margin-right: 10px;
+}
+.filter-sidebar input[type="checkbox"]:checked + label {
+    color: #00ff00;
+}
+
+
+/* Pour WebKit (Chrome, Safari) */
+#carnet-exiil-app ::-webkit-scrollbar {
+    width: 8px; /* Largeur de la barre verticale */
+    height: 8px; /* Hauteur de la barre horizontale */
+}
+
+#carnet-exiil-app ::-webkit-scrollbar-track {
+    background: #000; /* Fond noir */
+    border: 1px solid #3fff5f; /* Bordure verte pour l'effet moniteur */
+}
+
+#carnet-exiil-app ::-webkit-scrollbar-thumb {
+    background: #3fff5f; /* La "poignée" du défilement est verte */
+    border-radius: 0;
+}
+
+#carnet-exiil-app ::-webkit-scrollbar-thumb:hover {
+    background: #00ff00; /* Vert encore plus clair au survol */
+}
+
+/* Pour Firefox */
+#carnet-exiil-app {
+    scrollbar-color: #3fff5f #000; /* thumb color track color */
+    scrollbar-width: thin; /* ou 'auto' ou 'none' */
+}
+
+
+
+
+
+
+/* ======================================== Responsive ========================================*/
+
+/* --------------------------- Small screen ------------------------------*/
+
+@media screen and (max-width: 1400px) {
+
+    .item-clickable {
+        width: 300px;
+    }
+
+    .item-img-area {
+        height: 300px;
+        width: 300px;
+    }
+
+    /* Ajout pour la zone d'items */
+    .items-main-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        /* Permet plusieurs colonnes */
+    }
+
+    #item-sidebar {
+        /* Nouvelle largeur basée sur la nouvelle taille d'item (300px) */
+        width: calc(100% - 640px);
+        padding: 40px 60px;
+        display: block;
+        /* Laisser afficher si le mobile n'est pas activé */
+    }
+
+}
+
+
+
+/* --------------------------- Mobile ------------------------------*/
+
+@media screen and (max-width: 1024px) {
+
+    .main-container {
+        flex-direction: column;
+        /* Stacker les sidebars et les items */
+    }
+
+    .items-collect {
+        padding: 20px 0;
+    }
+
+    .items-main-container {
+        grid-gap: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
+        grid-template-columns: repeat(1, 1fr);
+        /* Une seule colonne */
+    }
+
+    .item-clickable {
+        width: calc(100vw - 40px);
+        /* 100% de la vue moins le padding total */
+    }
+
+    .item-img-area {
+        height: calc(100vw - 40px);
+        width: calc(100vw - 40px);
+    }
+
+    .item-img-area {
+        /* Adapter la hauteur/largeur en fonction du viewport */
+        height: 300px;
+        width: 100%;
+    }
+
+    .item-img-area img {
+        width: 100%;
+        /* S'assurer que les images remplissent bien l'espace */
+        height: 100%;
+    }
+
+    #item-sidebar {
+        width: 100%;
+        height: 100%;
+        /* Prend toute la hauteur pour l'overlay */
+        padding: 30px 40px;
+        position: fixed !important;
+        /* L'astuce du 'position: absolute' dans React est remplacée par 'fixed' ici pour un overlay propre */
+        top: 0;
+        left: 0;
+        z-index: 200;
+        /* La propriété 'display: none' est gérée par le script au chargement */
+    }
+
+    .back-button {
+        padding: 5px;
+        margin-bottom: 10px;
+        display: block;
+        /* Afficher le bouton Retour en mobile */
+    }
+
+    .item-section img {
+        max-width: 80%;
+        margin-left: 10%;
+    }
+
+    .filter-sidebar {
+        display: none;
+        /* Masquer la barre de filtre en mobile */
+    }
+}
+
+
+
+
+
+
+/* ======================================== Colors ========================================*/
+
+/* --------------------------- Colors (Categories) ------------------------------*/
+
+#Exhibition.category-name,
+.category-list li[data-value="Exhibition"].active {
+    background: radial-gradient(circle at top right, #476643, #1b221b);
+    color: #fff;
+}
+
+.category-list li[data-value="Exhibition"]:hover {
+    background-color: #476643;
+    color: #fff;
+}
+
+
+#VideoGame.category-name,
+.category-list li[data-value="Video Game"].active {
+    background: radial-gradient(circle at top right, #838383, #000000);
+    color: #fff;
+}
+
+.category-list li[data-value="Video Game"]:hover {
+    background-color: #838383;
+    color: #fff;
+}
+
+#Attraction.category-name,
+.category-list li[data-value="Attraction"].active {
+    background: radial-gradient(circle at top right, #444763, #15161b);
+    color: #fff;
+}
+
+.category-list li[data-value="Attraction"]:hover {
+    background-color: #444763;
+    color: #fff;
+}
+
+
+#Activity.category-name,
+.category-list li[data-value="Activity"].active {
+    background: radial-gradient(circle at top right, #44292f, #1b1515);
+    color: #fff;
+}
+
+.category-list li[data-value="Activity"]:hover {
+    background-color: #44292f;
+    color: #fff;
+}
+
+
+/* --------------------------- Colors (Themes) ------------------------------*/
+
+#Nature.theme-name,
+.theme-list li[data-value="Nature"].active {
+    background: #005304;
+    color: #fff;
+}
+
+.theme-list li[data-value="Nature"]:hover {
+    background-color: #005304;
+    color: #fff;
+}
+
+
+#Pop-Culture.theme-name,
+.theme-list li[data-value="Pop-Culture"].active {
+    background: #ff9cfa;
+    color: #000000;
+}
+
+.theme-list li[data-value="Pop-Culture"]:hover {
+    background-color: #ff9cfa;
+    color: #000000;
+}
+
+
+
+#Art.theme-name,
+.theme-list li[data-value="Art"].active {
+    background: #4cc6ff;
+    color: #000000;
+}
+
+.theme-list li[data-value="Art"]:hover {
+    background-color: #4cc6ff;
+    color: #000000;
+}
+
+#Science.theme-name,
+.theme-list li[data-value="Science"].active {
+    background: #000275;
+    color: #fff;
+}
+
+.theme-list li[data-value="Science"]:hover {
+    background-color: #000275;
+    color: #fff;
+}
