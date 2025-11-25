@@ -18,6 +18,7 @@
 	padding-bottom: 10px;
 	color: rgb(255, 255, 255);
 	background: linear-gradient(153deg, rgba(48, 36, 212, 1) 2%, rgba(131, 58, 180, 1) 43%, rgba(253, 29, 29, 1) 74%, rgba(252, 176, 69, 1) 100%);
+	margin: 0 auto;
 	border: 1px solid rgb(255, 255, 255);
 }
 
