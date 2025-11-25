@@ -1,0 +1,27 @@
+body {
+    background: linear-gradient(153deg, rgba(48, 36, 212, 1) 2%, rgba(131, 58, 180, 1) 43%, rgba(253, 29, 29, 1) 74%, rgba(252, 176, 69, 1) 100%);
+    color: azure;
+    font-family: Verdana, sans-serif;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+}
+
+
+.centered-text {
+    text-align: center;
+}
+
+#index ul {
+    list-style: none;
+}
+
+a {
+    color: rgb(242, 101, 255);
+}
+
+#ide-index {
+    background-color: rgb(29, 29, 29);
+    margin: 80px;
+    border-radius: 20px;
+    border: solid white 2px;
+}

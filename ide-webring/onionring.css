@@ -1,0 +1,54 @@
+/* onionring.js is made up of four files - onionring-widget.js, onionring-index.js, onionring-variables.js and onionring.css (this one!)
+// it's licensed under the cooperative non-violent license (CNPL) v4+ (https://thufie.lain.haus/NPL.html)
+// it was originally made by joey + mord of allium (蒜) house, last updated 2020-10-24 */
+
+/* === ONIONRING.CSS === */
+/* this file affects the style of the widget. remember to replace all instances of #webringid with whatever value you have for ringID in the onionring-widget.js file. make sure it still has the # at the front, though! probably easiest to use find+replace to do it */
+
+#ide-webring {
+	color: #000000;
+	font-family: 'Segoe UI', sans-serif;
+	margin: 0 auto;
+	padding: 20px;
+	/* creates some space around the widget */
+}
+
+#ide-webring table {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: rgb(255, 255, 255);
+	background: linear-gradient(153deg, rgba(48, 36, 212, 1) 2%, rgba(131, 58, 180, 1) 43%, rgba(253, 29, 29, 1) 74%, rgba(252, 176, 69, 1) 100%);
+	border: 1px solid rgb(255, 255, 255);
+}
+
+#ide-webring table tr td {
+	padding: 10px;
+}
+
+#ide-webring .webring-prev {
+	text-align: right;
+}
+
+#ide-webring .webring-info {
+	text-align: center;
+}
+
+#ide-webring .webring-next {
+	text-align: left;
+}
+
+#ide-webring .webring-links {
+	font-size: small;
+}
+
+#left-arrow {
+	transform: rotate(180deg);
+}
+
+#left-arrow:hover {
+	transform: scale(1.1) rotate(180deg);
+}
+
+#right-arrow:hover{
+	transform: scale(1.1);
+}
