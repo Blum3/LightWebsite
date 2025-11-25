@@ -62,7 +62,9 @@ else {
       <td class='webring-prev'><a href='${sites[previousIndex]}'> <img id="left-arrow" src="ide-webring/arrow.png" alt="PREV"> </a></td>
 
       <td class='webring-info'>
+        <a href="https://galilee-mason.neocities.org/ide-webring.html">
         <img src="ide-webring/logo2025white.png" alt="IDE logo">
+        </a>
         </br>
         <span class='webring-links'>
         ${randomText}
