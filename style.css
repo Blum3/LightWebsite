@@ -58,7 +58,8 @@ body {
 }
 
 .project-title:hover {
-    text-shadow: 0 0 2px #3fff5f; /* Lueur au survol */
+    text-shadow: 0 0 2px #3fff5f;
+    /* Lueur au survol */
 }
 
 .project-title:hover::before {
@@ -78,25 +79,37 @@ a {
 }
 
 a:hover {
-    text-shadow: 0 0 5px rgb(0, 183, 255); /* Lueur au survol */
+    text-shadow: 0 0 5px rgb(0, 183, 255);
+    /* Lueur au survol */
 }
 
 /* ASCII music icon box */
-  #music-box {
+#music-box {
     text-align: center;
     user-select: none;
     padding: 15px;
     white-space: pre;
     cursor: pointer;
     transition: 0.1s;
-  }
+}
 
-  /* Hover flicker effect */
-  #music-box:hover {
+/* Hover flicker effect */
+#music-box:hover {
     text-shadow: 0 0 6px #00ff00;
-  }
+}
 
+#neighborhood a img:hover{
+    filter: brightness(150%);
+}
 
+#neighborhood a img{
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+#neighborhood a {
+    text-decoration: none; /* no underline */
+}
 
 
 
@@ -116,7 +129,7 @@ summary::marker {
 
 summary::marker,
 summary::-webkit-details-marker {
-  display: none;
+    display: none;
 }
 
 
