@@ -26,13 +26,23 @@ a {
     margin: 80px 20% 80px 20%;
     border-radius: 20px;
     border: solid white 2px;
+    padding: 20px;
+}
+
+.html-code {
     padding: 5px;
+    background-color: black;
+    overflow: scroll;
+}
+
+h1 {
+    margin : 0;
 }
 
 @media (max-width: 600px) {
     #ide-index {
-
-    margin: 10px;
-    border-radius: 15px;
-}
+        padding: 5px;
+        margin: 10px;
+        border-radius: 15px;
+    }
 }
