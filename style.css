@@ -95,20 +95,21 @@ a:hover {
 
 /* Hover flicker effect */
 #music-box:hover {
-    text-shadow: 0 0 6px #00ff00;
+    text-shadow: 0 0 2px #3fff5f;
 }
 
-#neighborhood a img:hover{
+#neighborhood a img:hover {
     filter: brightness(150%);
 }
 
-#neighborhood a img{
+#neighborhood a img {
     padding-top: 4px;
     padding-bottom: 4px;
 }
 
 #neighborhood a {
-    text-decoration: none; /* no underline */
+    text-decoration: none;
+    /* no underline */
 }
 
 
@@ -122,6 +123,10 @@ summary {
     padding: none;
 }
 
+summary:hover {
+    text-shadow: 0 0 6px #3fff5f;
+}
+
 
 summary::marker {
     display: none;
@@ -130,6 +135,19 @@ summary::marker {
 summary::marker,
 summary::-webkit-details-marker {
     display: none;
+}
+
+button {
+    font-size: medium;
+    cursor: pointer;
+    background-color: transparent;
+    color: #3fff5f;
+    font-family: "Workbench", monospace;
+    border: none;
+}
+
+button:hover {
+    text-shadow: 0 0 2px #3fff5f;
 }
 
 
