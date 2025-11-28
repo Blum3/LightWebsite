@@ -18,14 +18,14 @@ function normalizeString(str) {
 }
 
 function formatDate(dateString) {
-    if (!dateString) return "Pas de date de fin";
+    if (!dateString) return "No end date";
     const date = new Date(dateString);
     const now = new Date();
     const formattedDate = date.toLocaleDateString('fr-FR');
 
     return date >= now
-        ? `Ouvert jusqu'au : ${formattedDate}`
-        : `Terminé depuis : ${formattedDate}`;
+        ? `Open until : ${formattedDate}`
+        : `Over since : ${formattedDate}`;
 }
 
 // --- Logique du Filtre (FilterSidebar) ---
@@ -172,11 +172,11 @@ function renderItemSidebar(item) {
     
     // Début du contenu statique
     let htmlContent = `
-        <button id="hide-sidebar-button" class="back-button"> Retour </button>
+        <button id="hide-sidebar-button" class="mobile-button"> Retour </button>
         <h2>${item.name}</h2>
-        <p>Imaginée par : ${item.creator}</p>
+        <p>Created by : ${item.creator}</p>
         <p>${formatDate(item.until)}</p>
-        <p>A : ${item.location}</p>
+        <p>Location : ${item.location}</p>
         <p>${item.description}</p>
     `;
 
@@ -187,7 +187,7 @@ function renderItemSidebar(item) {
                 <h3>${section.title}</h3>
                 <p class="section-content">${section.content}</p>
                 ${section.imageRef ? `
-                    <img src="${section.imageRef}" alt="Image Manquante" />
+                    <img src="${section.imageRef}" alt="Missing picture" />
                     <p class="caption">${section.imageCaption || ''}</p>
                 ` : ''}
             </div>

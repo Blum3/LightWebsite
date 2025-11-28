@@ -85,7 +85,7 @@ body {
 .item-img-area #photo {
     opacity: 0;
     object-fit: cover;
-} 
+}
 
 .item-clickable:hover .item-img-area #photo {
     opacity: 1;
@@ -173,7 +173,7 @@ body {
     color: #555;
 }
 
-.back-button {
+.mobile-button {
     font-family: monospace;
     background-color: #000;
     color: #3fff5f;
@@ -266,41 +266,57 @@ body {
 }
 
 .filter-sidebar input[type="checkbox"] {
-    accent-color: #3fff5f; /* Rend la case à cocher verte si le navigateur le permet */
+    accent-color: #3fff5f;
+    /* Rend la case à cocher verte si le navigateur le permet */
     margin-right: 10px;
 }
-.filter-sidebar input[type="checkbox"]:checked + label {
+
+.filter-sidebar input[type="checkbox"]:checked+label {
     color: #00ff00;
 }
 
 
 /* Pour WebKit (Chrome, Safari) */
 #carnet-exiil-app ::-webkit-scrollbar {
-    width: 8px; /* Largeur de la barre verticale */
-    height: 8px; /* Hauteur de la barre horizontale */
+    width: 8px;
+    /* Largeur de la barre verticale */
+    height: 8px;
+    /* Hauteur de la barre horizontale */
 }
 
 #carnet-exiil-app ::-webkit-scrollbar-track {
-    background: #000; /* Fond noir */
-    border: 1px solid #3fff5f; /* Bordure verte pour l'effet moniteur */
+    background: #000;
+    /* Fond noir */
+    border: 1px solid #3fff5f;
+    /* Bordure verte pour l'effet moniteur */
 }
 
 #carnet-exiil-app ::-webkit-scrollbar-thumb {
-    background: #3fff5f; /* La "poignée" du défilement est verte */
+    background: #3fff5f;
+    /* La "poignée" du défilement est verte */
     border-radius: 0;
 }
 
 #carnet-exiil-app ::-webkit-scrollbar-thumb:hover {
-    background: #00ff00; /* Vert encore plus clair au survol */
+    background: #00ff00;
+    /* Vert encore plus clair au survol */
 }
 
 /* Pour Firefox */
 #carnet-exiil-app {
-    scrollbar-color: #3fff5f #000; /* thumb color track color */
-    scrollbar-width: thin; /* ou 'auto' ou 'none' */
+    scrollbar-color: #3fff5f #000;
+    /* thumb color track color */
+    scrollbar-width: thin;
+    /* ou 'auto' ou 'none' */
 }
 
-
+#mobile-filter-bar {
+    /* Hidden on large screens */
+    display: none; 
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
 
 
 
@@ -371,7 +387,6 @@ body {
 
     .item-img-area {
         /* Adapter la hauteur/largeur en fonction du viewport */
-        height: 300px;
         width: 100%;
     }
 
@@ -384,21 +399,19 @@ body {
     #item-sidebar {
         width: 100%;
         height: 100%;
-        /* Prend toute la hauteur pour l'overlay */
         padding: 30px 40px;
         position: fixed !important;
-        /* L'astuce du 'position: absolute' dans React est remplacée par 'fixed' ici pour un overlay propre */
         top: 0;
         left: 0;
         z-index: 200;
-        /* La propriété 'display: none' est gérée par le script au chargement */
+        display: none;
     }
 
-    .back-button {
+    .mobile-button {
         padding: 5px;
         margin-bottom: 10px;
         display: block;
-        /* Afficher le bouton Retour en mobile */
+        /* bouton retour only mobile */
     }
 
     .item-section img {
@@ -408,7 +421,18 @@ body {
 
     .filter-sidebar {
         display: none;
-        /* Masquer la barre de filtre en mobile */
+    }
+
+    #mobile-filter-bar {
+        display: block; /* Make it visible */
+        position: sticky; /* Keep it at the top when scrolling */
+        top: 0;
+        z-index: 1000; /* Ensure it's above other content */
+    }
+
+    /* 2. HIDE the desktop filter sidebar */
+    .filter-sidebar {
+        display: none;
     }
 }
 
