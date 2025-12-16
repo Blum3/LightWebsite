@@ -247,9 +247,7 @@ body {
     display: block;
 }
 
-.filter-sidebar input[type="checkbox"] {
-    margin-right: 10px;
-}
+
 
 /* Styling for Category and Theme Filters */
 .category-list,
@@ -267,7 +265,6 @@ body {
 
 .filter-sidebar input[type="checkbox"] {
     accent-color: #3fff5f;
-    /* Rend la case à cocher verte si le navigateur le permet */
     margin-right: 10px;
 }
 
