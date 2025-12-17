@@ -59,20 +59,20 @@ else {
     
   <table>
     <tr>
-      <td class='webring-prev'><a href='${sites[previousIndex]}'> <img id="left-arrow" src="ide-webring/arrow.png" alt="PREV"> </a></td>
+      <td class='webring-prev'><a href='${sites[previousIndex]}'> <img id="left-arrow" src="https://galilee-mason.neocities.org/ide-webring/arrow.png" alt="PREV"> </a></td>
 
       <td class='webring-info'>
         <a href="https://galilee-mason.neocities.org/ide-webring.html">
-        <img src="ide-webring/logo2025white.png" alt="IDE logo">
+        <img src="https://galilee-mason.neocities.org/ide-webring/logo2025white.png" alt="IDE logo">
         </a>
         </br>
         <span class='webring-links'>
         ${randomText}
         ${indexText}
-        <a href='https://garlic.garden/onionring/'>What is this?</a></span>
+        <a href='https://galilee-mason.neocities.org/ide-webring.html'>What is this?</a></span>
       </td>
 
-      <td class='webring-next'><a href='${sites[nextIndex]}'> <img id="right-arrow" src="ide-webring/arrow.png" alt="NEXT"> </a></td>
+      <td class='webring-next'><a href='${sites[nextIndex]}'> <img id="right-arrow" src="https://galilee-mason.neocities.org/ide-webring/arrow.png" alt="NEXT"> </a></td>
     </tr>
   </table>
   `);
