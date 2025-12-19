@@ -150,6 +150,21 @@ button:hover {
     text-shadow: 0 0 2px #3fff5f;
 }
 
+#pentacle-protocol {
+    color: red;
+}
+
+#plumbus {
+    color: rgb(255, 44, 160);
+}
+
+#flop-office {
+    color: rgb(255, 255, 154);
+}
+
+#evergreen-valley {
+    color: rgb(27, 109, 0);
+}
 
 @media (max-width: 600px) {
     .main-content {

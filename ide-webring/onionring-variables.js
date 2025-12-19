@@ -8,7 +8,8 @@
 //the full URLs of all the sites in the ring
 var sites = [
 'https://galilee-mason.neocities.org/',
-'https://ide.vincentcaruso.fr/'
+'https://ide.vincentcaruso.fr/',
+'https://betshet.itch.io/'
 ];
 
 //the name of the ring
