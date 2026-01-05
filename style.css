@@ -72,6 +72,7 @@ body {
 
 .project-img {
     width: 60%;
+    cursor: pointer;
 }
 
 a {
@@ -166,6 +167,20 @@ button:hover {
     color: rgb(27, 109, 0);
 }
 
+#fullpage {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;
+    background-color: black;
+    cursor: pointer;
+}
 @media (max-width: 600px) {
     .main-content {
         max-width: 100%;

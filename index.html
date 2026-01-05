@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="ide-webring/onionring.css">
 </head>
 
-<body>
+<body onload="getPics()">
     <div class="main-content">
 
         <div class="titles">
@@ -533,6 +533,7 @@
         </div>
 
     </div>
+    <div id="fullpage" onclick="this.style.display='none';"></div>
 
 
 
@@ -1004,6 +1005,17 @@ o o o o o o o o o o
 
         function clickTop(detailsElement) {
             detailsElement.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function getPics() {
+            const imgs = document.querySelectorAll('.project-img');
+            const fullPage = document.querySelector('#fullpage');
+            imgs.forEach(img => {
+                img.addEventListener('click', function () {
+                    fullPage.style.backgroundImage = 'url(' + img.src + ')';
+                    fullPage.style.display = 'block';
+                });
+            });
         }
     </script>
 
