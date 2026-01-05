@@ -37,6 +37,69 @@
 
         <div class="centered-text">***********************************************</div>
 
+        <div id="currency-converter" class="centered-text side-padding">
+            <details>
+                <summary>
+                    <p class="project-title">Game Currencies Converter</a></p>
+                </summary>
+
+
+                <div class="converter-container">
+                    <div class="input-group">
+                        <input type="number" id="amountInput" value="1.00">
+                        <select id="fromCurrency"></select>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="number" id="resultOutput">
+                        <select id="toCurrency"></select>
+                    </div>
+
+                    <br>
+
+                    <div class="shortcuts">
+                        Quick prices :
+                        <br>
+                        <button id="bikeBtn">[Bike]</button>
+                        <button id="waterBtn">[Water bottle]</button>
+                        <button id="swordBtn">[Sword]</button>
+                        <button id="ammoBtn">[5.56 bullets x20]</button>
+                    </div>
+
+
+                    <p>
+                        Disclaimer : This whole thing is completely stupid; the economies in which these games are set
+                        are very
+                        different. In video games, money is a game mechanic more than anything else. All buttons items
+                        price
+                        were calculated using current USD value. Due to these
+                        factors, you might spot some inaccuracies. I am amazed of how many stupid people asked this
+                        stupid
+                        question on Reddit for each game. Also people make videos about that on Youtube. Anyway, here is
+                        the
+                        stupidest currency converter you've
+                        ever used. You're welcome.
+                        <br><br>
+                        Sources :
+                        <a
+                            href="https://www.reddit.com/r/falloutlore/comments/2bi9cd/what_would_be_the_exchange_rates_of_bottle_caps/">Fallout</a>
+                        - <a
+                            href="https://www.reddit.com/r/pokemon/comments/lk1mh1/observations_on_converting_pokedollars_to_us/">Pokemon</a>
+                        - <a
+                            href="https://www.reddit.com/r/mountandblade/comments/6qjyur/at_what_rate_could_denars_be_converted_to_dollars/">Mount
+                            and Blade</a>
+                        - <a href="https://www.youtube.com/watch?v=3qyKY4YhE8M">Zelda</a>
+
+                    </p>
+
+
+                </div>
+            </details>
+        </div>
+
+        <div class="centered-text">,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</div>
+
+
         <div id="neighborhood" class="centered-text side-padding">
             <details>
                 <summary>
@@ -1017,6 +1080,82 @@ o o o o o o o o o o
                 });
             });
         }
+
+        // STUPID MONEY CONVERTER
+
+        const currencyToUsdRates = {
+            "Dollar (US)": 1.0,
+            "Euro (Europe)": 1.087,
+            "Yen (Japan)": 0.008,
+            "Caps [Fallout]": 0.45,
+            "Pokedollar [Pokemon]": 0.008,
+            "Denar [Mount and Blade]": 3.5,
+            "Rupees [Zelda]": 0.14,
+        };
+
+        const amountInput = document.getElementById("amountInput");
+        const resultInput = document.getElementById("resultOutput");
+        const fromDropdown = document.getElementById("fromCurrency");
+        const toDropdown = document.getElementById("toCurrency");
+
+        // Fixed Price Constants (USD)
+        const PRICES = {
+            bike: 400,
+            waterBottle: 2,
+            sword: 150,
+            ammo: 11
+        };
+
+        function populateDropdowns() {
+            Object.keys(currencyToUsdRates).forEach(currency => {
+                fromDropdown.add(new Option(currency, currency));
+                toDropdown.add(new Option(currency, currency));
+            });
+
+            fromDropdown.value = "Euro (Europe)";
+            toDropdown.value = "Caps [Fallout]";
+        }
+
+        function convert(isTopToBottom) {
+            const fromRate = currencyToUsdRates[fromDropdown.value];
+            const toRate = currencyToUsdRates[toDropdown.value];
+
+            if (isTopToBottom) {
+                const val = parseFloat(amountInput.value);
+                if (isNaN(val)) return resultInput.value = "";
+                resultInput.value = ((val * fromRate) / toRate).toFixed(2);
+            } else {
+                const val = parseFloat(resultInput.value);
+                if (isNaN(val)) return amountInput.value = "";
+                amountInput.value = ((val * toRate) / fromRate).toFixed(2);
+            }
+        }
+
+        function setFixedPrice(usdPrice) {
+            const targetRate = currencyToUsdRates[fromDropdown.value];
+            // PriceInSelectedCurrency = PriceInUSD / RateOfSelected
+            const localizedPrice = usdPrice / targetRate;
+
+            amountInput.value = localizedPrice.toFixed(2);
+            convert(true);
+        }
+
+        // Button Listeners
+        document.getElementById("bikeBtn").addEventListener("click", () => setFixedPrice(PRICES.bike));
+        document.getElementById("waterBtn").addEventListener("click", () => setFixedPrice(PRICES.waterBottle));
+        document.getElementById("swordBtn").addEventListener("click", () => setFixedPrice(PRICES.sword));
+        document.getElementById("ammoBtn").addEventListener("click", () => setFixedPrice(PRICES.ammo));
+
+        // Input Listeners
+        amountInput.addEventListener("input", () => convert(true));
+        resultInput.addEventListener("input", () => convert(false));
+        fromDropdown.addEventListener("change", () => convert(true));
+        toDropdown.addEventListener("change", () => convert(true));
+
+        populateDropdowns();
+        convert(true);
+
+
     </script>
 
 </body>

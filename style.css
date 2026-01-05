@@ -181,6 +181,53 @@ button:hover {
     background-color: black;
     cursor: pointer;
 }
+
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #3fff5f;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 255, 0, 0.06); 
+}
+
+.input-group input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #3fff5f;
+    font-family: "Workbench", monospace;
+    font-size: 1.2rem;
+    outline: none;
+    width: 100%;
+}
+
+.input-group select {
+    background: transparent;
+    border: none;
+    border-left: 1px solid #3fff5f; 
+    color: #3fff5f;
+    font-family: "Workbench", monospace;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.input-group select option {
+    background-color: #000;
+    color: #3fff5f;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] { 
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0; 
+}
+
 @media (max-width: 600px) {
     .main-content {
         max-width: 100%;
