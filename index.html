@@ -59,38 +59,44 @@
 
                     <div class="shortcuts">
                         Quick prices :
-                        <br>
-                        <button id="bikeBtn">[Bike]</button>
-                        <button id="waterBtn">[Water bottle]</button>
-                        <button id="swordBtn">[Sword]</button>
+                        <button id="bikeBtn">[a bike]</button>
+                        <button id="waterBtn">[a water bottle]</button>
+                        <button id="swordBtn">[a sword]</button>
                         <button id="ammoBtn">[5.56 bullets x20]</button>
+                        <button id="cocaineBtn">[1g of cocaine]</button>
+
                     </div>
 
+                    <div class="small-text">
+                        <p>
+                            Disclaimer : This whole thing is completely stupid; the economies in which these games are
+                            set
+                            are very
+                            different. In video games, money is a game mechanic more than anything else. All quick
+                            prices
+                            were calculated using current USD value. Due to these
+                            factors, you might spot some inaccuracies. I am amazed of how many stupid people asked this
+                            stupid
+                            question on Reddit for each game. Also people make videos about that on Youtube. Anyway,
+                            here is
+                            the stupidest currency converter you've ever used.
+                            <br><br>
+                            Sources :
+                            <a
+                                href="https://www.reddit.com/r/falloutlore/comments/2bi9cd/what_would_be_the_exchange_rates_of_bottle_caps/">Fallout</a>
+                            - <a
+                                href="https://www.reddit.com/r/pokemon/comments/lk1mh1/observations_on_converting_pokedollars_to_us/">Pokemon</a>
+                            - <a
+                                href="https://www.reddit.com/r/mountandblade/comments/6qjyur/at_what_rate_could_denars_be_converted_to_dollars/">Mount
+                                and Blade</a>
+                            - <a href="https://www.youtube.com/watch?v=3qyKY4YhE8M">Zelda</a>
+                            - <a
+                                href="https://www.reddit.com/r/ac_newhorizons/comments/fohslr/how_i_found_the_conversion_rate_between_us/">Animal
+                                Crossing</a>
 
-                    <p>
-                        Disclaimer : This whole thing is completely stupid; the economies in which these games are set
-                        are very
-                        different. In video games, money is a game mechanic more than anything else. All buttons items
-                        price
-                        were calculated using current USD value. Due to these
-                        factors, you might spot some inaccuracies. I am amazed of how many stupid people asked this
-                        stupid
-                        question on Reddit for each game. Also people make videos about that on Youtube. Anyway, here is
-                        the
-                        stupidest currency converter you've
-                        ever used. You're welcome.
-                        <br><br>
-                        Sources :
-                        <a
-                            href="https://www.reddit.com/r/falloutlore/comments/2bi9cd/what_would_be_the_exchange_rates_of_bottle_caps/">Fallout</a>
-                        - <a
-                            href="https://www.reddit.com/r/pokemon/comments/lk1mh1/observations_on_converting_pokedollars_to_us/">Pokemon</a>
-                        - <a
-                            href="https://www.reddit.com/r/mountandblade/comments/6qjyur/at_what_rate_could_denars_be_converted_to_dollars/">Mount
-                            and Blade</a>
-                        - <a href="https://www.youtube.com/watch?v=3qyKY4YhE8M">Zelda</a>
+                        </p>
+                    </div>
 
-                    </p>
 
 
                 </div>
@@ -1091,6 +1097,7 @@ o o o o o o o o o o
             "Pokedollar [Pokemon]": 0.008,
             "Denar [Mount and Blade]": 3.5,
             "Rupees [Zelda]": 0.14,
+            "Bells [Animal Crossing]": 0.01,
         };
 
         const amountInput = document.getElementById("amountInput");
@@ -1103,7 +1110,8 @@ o o o o o o o o o o
             bike: 400,
             waterBottle: 2,
             sword: 150,
-            ammo: 11
+            ammo: 11,
+            cocaine: 90,
         };
 
         function populateDropdowns() {
@@ -1145,6 +1153,7 @@ o o o o o o o o o o
         document.getElementById("waterBtn").addEventListener("click", () => setFixedPrice(PRICES.waterBottle));
         document.getElementById("swordBtn").addEventListener("click", () => setFixedPrice(PRICES.sword));
         document.getElementById("ammoBtn").addEventListener("click", () => setFixedPrice(PRICES.ammo));
+        document.getElementById("cocaineBtn").addEventListener("click", () => setFixedPrice(PRICES.cocaine));
 
         // Input Listeners
         amountInput.addEventListener("input", () => convert(true));
