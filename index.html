@@ -33,6 +33,7 @@
         </div>
 
         <div id="ascii-gali" class="ascii"></div>
+        
         <br>
 
         <div class="centered-text">***********************************************</div>
@@ -45,12 +46,15 @@
 
 
                 <div class="converter-container">
+
                     <div class="input-group">
-                        <input type="number" id="amountInput" value="1.00">
+                        <img id="fromIcon" src="" width="40" height="40" style="margin-right: 10px;">
+                        <input type="number" id="amountInput">
                         <select id="fromCurrency"></select>
                     </div>
 
                     <div class="input-group">
+                        <img id="toIcon" src="" width="40" height="40" style="margin-right: 10px;">
                         <input type="number" id="resultOutput">
                         <select id="toCurrency"></select>
                     </div>
@@ -93,7 +97,9 @@
                             - <a
                                 href="https://www.reddit.com/r/ac_newhorizons/comments/fohslr/how_i_found_the_conversion_rate_between_us/">Animal
                                 Crossing</a>
-
+                            - <a
+                                href="https://www.reddit.com/r/cyberpunkgame/comments/kdatvx/do_we_know_what_modern_usd_to_cyber_punk/">Cyberpunk</a>
+                            - <a href="https://www.tiktok.com/@trasheurs/video/7339217277176368417">Dark Souls</a>
                         </p>
                     </div>
 
@@ -1090,20 +1096,31 @@ o o o o o o o o o o
         // STUPID MONEY CONVERTER
 
         const currencyToUsdRates = {
-            "Dollar (US)": 1.0,
-            "Euro (Europe)": 1.087,
-            "Yen (Japan)": 0.008,
-            "Caps [Fallout]": 0.45,
-            "Pokedollar [Pokemon]": 0.008,
-            "Denar [Mount and Blade]": 3.5,
-            "Rupees [Zelda]": 0.14,
-            "Bells [Animal Crossing]": 0.01,
+            "Dollar (US)": { rate: 1.0, icon: "images/currencies/usd.png" },
+            "Euro (Europe)": { rate: 1.087, icon: "images/currencies/euro.png" },
+            "Yen (Japan)": { rate: 0.008, icon: "images/currencies/yen.png" },
+            "Caps [Fallout]": { rate: 0.45, icon: "images/currencies/cap.png" },
+            "Pokedollar [Pokemon]": { rate: 0.008, icon: "images/currencies/pokedollar.png" },
+            "Denar [Mount and Blade]": { rate: 3.5, icon: "images/currencies/denar-xs.png" },
+            "Rupees [Zelda]": { rate: 0.14, icon: "images/currencies/rupees.png" },
+            "Bells [Animal Crossing]": { rate: 0.01, icon: "images/currencies/bells.png" },
+            "Eurodollars [Cyberpunk]": { rate: 3.2, icon: "images/currencies/ed.png" },
+            "Souls [Dark Souls]": { rate: 2.5, icon: "images/currencies/soul.png" },
+            "V-Bucks [Fortnite]": { rate: 0.001, icon: "images/currencies/vbucks.png" },
         };
 
         const amountInput = document.getElementById("amountInput");
         const resultInput = document.getElementById("resultOutput");
         const fromDropdown = document.getElementById("fromCurrency");
         const toDropdown = document.getElementById("toCurrency");
+
+        const fromIcon = document.getElementById("fromIcon");
+        const toIcon = document.getElementById("toIcon");
+
+        function updateIcons() {
+            fromIcon.src = currencyToUsdRates[fromDropdown.value].icon;
+            toIcon.src = currencyToUsdRates[toDropdown.value].icon;
+        }
 
         // Fixed Price Constants (USD)
         const PRICES = {
@@ -1122,11 +1139,13 @@ o o o o o o o o o o
 
             fromDropdown.value = "Euro (Europe)";
             toDropdown.value = "Caps [Fallout]";
+
+            updateIcons();
         }
 
         function convert(isTopToBottom) {
-            const fromRate = currencyToUsdRates[fromDropdown.value];
-            const toRate = currencyToUsdRates[toDropdown.value];
+            const fromRate = currencyToUsdRates[fromDropdown.value].rate;
+            const toRate = currencyToUsdRates[toDropdown.value].rate;
 
             if (isTopToBottom) {
                 const val = parseFloat(amountInput.value);
@@ -1137,10 +1156,12 @@ o o o o o o o o o o
                 if (isNaN(val)) return amountInput.value = "";
                 amountInput.value = ((val * toRate) / fromRate).toFixed(2);
             }
+
+            updateIcons();
         }
 
         function setFixedPrice(usdPrice) {
-            const targetRate = currencyToUsdRates[fromDropdown.value];
+            const targetRate = currencyToUsdRates[fromDropdown.value].rate;
             // PriceInSelectedCurrency = PriceInUSD / RateOfSelected
             const localizedPrice = usdPrice / targetRate;
 

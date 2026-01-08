@@ -185,9 +185,9 @@ button:hover {
 .input-group {
     display: flex;
     align-items: center;
-    border: 1px solid #3fff5f;
+    border: 1px dashed #3fff5f;
     padding: 0.5rem 1rem;
-    background: rgba(0, 255, 0, 0.06); 
+    background: rgba(0, 255, 0, 0.06);
 }
 
 .input-group input {
@@ -196,7 +196,7 @@ button:hover {
     border: none;
     color: #3fff5f;
     font-family: "Workbench", monospace;
-    font-size: 1.2rem;
+    font-size: large;
     outline: none;
     width: 100%;
 }
@@ -204,13 +204,14 @@ button:hover {
 .input-group select {
     background: transparent;
     border: none;
-    border-left: 1px solid #3fff5f; 
+    border-left: 1px solid #3fff5f;
     color: #3fff5f;
     font-family: "Workbench", monospace;
     margin-left: 1rem;
     padding-left: 1rem;
     outline: none;
     cursor: pointer;
+    font-size: large;
 }
 
 .input-group select option {
@@ -219,13 +220,13 @@ button:hover {
 }
 
 input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
 }
 
-input[type=number] { 
+input[type=number] {
     -moz-appearance: textfield;
     appearance: textfield;
-    margin: 0; 
+    margin: 0;
 }
 
 @media (max-width: 600px) {
