@@ -229,6 +229,18 @@ input[type=number] {
     margin: 0;
 }
 
+#hyoshigi-img {
+    cursor: pointer;
+}
+
+.pixel-art {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: pixelated;
+}
+
 @media (max-width: 600px) {
     .main-content {
         max-width: 100%;

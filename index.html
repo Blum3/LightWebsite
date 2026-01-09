@@ -33,10 +33,29 @@
         </div>
 
         <div id="ascii-gali" class="ascii"></div>
-        
+
         <br>
 
         <div class="centered-text">***********************************************</div>
+
+        <div id="hyoshigi" class="centered-text side-padding">
+            <details>
+                <summary>
+                    <p class="project-title">Hyoshigi</a></p>
+                </summary>
+
+                <br><br>
+
+                <img class="pixel-art" id="hyoshigi-img" src="images/orchestra/hyoshigi1.png" alt="hyoshigi" width="300" height="300" image-rendering: pixelated;>
+
+                <audio id="hyoshigi-sound" src="audio/hyoshigi.wav"></audio>
+
+                <br><br>
+
+            </details>
+        </div>
+
+        <div class="centered-text">mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</div>
 
         <div id="currency-converter" class="centered-text side-padding">
             <details>
@@ -100,8 +119,12 @@
                             - <a
                                 href="https://www.reddit.com/r/cyberpunkgame/comments/kdatvx/do_we_know_what_modern_usd_to_cyber_punk/">Cyberpunk</a>
                             - <a href="https://www.tiktok.com/@trasheurs/video/7339217277176368417">Dark Souls</a>
-                            - <a href="https://www.quora.com/In-the-Witcher-series-approximately-how-much-would-1-crown-be-in-US-dollars-in-the-real-world">The Witcher</a>
-                            - <a href="https://www.reddit.com/r/AskScienceFiction/comments/21tfph/metro_2033last_light_how_many_military_grade/">Metro 2033</a>
+                            - <a
+                                href="https://www.quora.com/In-the-Witcher-series-approximately-how-much-would-1-crown-be-in-US-dollars-in-the-real-world">The
+                                Witcher</a>
+                            - <a
+                                href="https://www.reddit.com/r/AskScienceFiction/comments/21tfph/metro_2033last_light_how_many_military_grade/">Metro
+                                2033</a>
                         </p>
                     </div>
 
@@ -1095,6 +1118,29 @@ o o o o o o o o o o
             });
         }
 
+
+        // ORCHESTRA
+
+        const hyoImage = document.getElementById("hyoshigi-img");
+        const hyoSound = document.getElementById("hyoshigi-sound");
+
+        hyoImage.imageSmoothingEnabled = false;
+        hyoImage.webkitImageSmoothingEnabled = false;
+
+
+        function clickHyoshigi() {
+
+            hyoImage.src = "images/orchestra/hyoshigi2.png";
+            hyoSound.currentTime = 0;
+            hyoSound.play();
+            setTimeout(function () {
+                hyoImage.src = "images/orchestra/hyoshigi1.png";
+            }, 200);
+        }
+
+        hyoImage.addEventListener("mousedown", () => clickHyoshigi());
+
+
         // STUPID MONEY CONVERTER
 
         const currencyToUsdRates = {
@@ -1120,6 +1166,8 @@ o o o o o o o o o o
 
         const fromIcon = document.getElementById("fromIcon");
         const toIcon = document.getElementById("toIcon");
+
+
 
         function updateIcons() {
             fromIcon.src = currencyToUsdRates[fromDropdown.value].icon;
