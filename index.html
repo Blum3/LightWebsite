@@ -46,7 +46,8 @@
 
                 <br><br>
 
-                <img class="pixel-art" id="hyoshigi-img" src="images/orchestra/hyoshigi1.png" alt="hyoshigi" width="300" height="300" image-rendering: pixelated;>
+                <img class="pixel-art" id="hyoshigi-img" src="images/orchestra/hyoshigi1.png" alt="hyoshigi" width="300"
+                    height="300" image-rendering: pixelated;>
 
                 <audio id="hyoshigi-sound" src="audio/hyoshigi.wav"></audio>
 
@@ -1128,15 +1129,55 @@ o o o o o o o o o o
         hyoImage.webkitImageSmoothingEnabled = false;
 
 
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        let hyoBuffer = null;
+
+        function loadHyoshigiSound() {
+
+            fetch("audio/hyoshigi.wav")
+                .then(r => r.arrayBuffer())
+                .then(b => audioCtx.decodeAudioData(b))
+                .then(buf => {
+                    hyoBuffer = buf;
+                });
+        }
+
+        document.addEventListener("click", () => {
+
+            if (audioCtx.state === "suspended") {
+                audioCtx.resume();
+            }
+
+        }, { once: true });
+
+
+        function playHyoshigiSound() {
+
+            if (!hyoBuffer) return;
+
+            const src = audioCtx.createBufferSource();
+            src.buffer = hyoBuffer;
+            src.connect(audioCtx.destination);
+            src.start(0);
+        }
+
         function clickHyoshigi() {
 
+            // visual hit frame
             hyoImage.src = "images/orchestra/hyoshigi2.png";
-            hyoSound.currentTime = 0;
-            hyoSound.play();
-            setTimeout(function () {
+
+            // ensure image is rendered before sound starts
+            requestAnimationFrame(() => {
+                playHyoshigiSound();
+            });
+
+            // return to idle frame
+            setTimeout(() => {
                 hyoImage.src = "images/orchestra/hyoshigi1.png";
             }, 200);
         }
+
+        loadHyoshigiSound();
 
         hyoImage.addEventListener("mousedown", () => clickHyoshigi());
 
