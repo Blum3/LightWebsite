@@ -148,7 +148,7 @@ button {
 }
 
 button:hover {
-    text-shadow: 0 0 2px #3fff5f;
+    text-shadow: 0 0 2px #3fff5f;   
 }
 
 #pentacle-protocol {
@@ -160,11 +160,15 @@ button:hover {
 }
 
 #flop-office {
-    color: rgb(255, 255, 154);
+    color: rgb(255, 255, 190);
 }
 
 #evergreen-valley {
     color: rgb(27, 109, 0);
+}
+
+#spotnik {
+    color: rgb(241, 220, 22)
 }
 
 #fullpage {
