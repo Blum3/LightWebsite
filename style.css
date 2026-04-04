@@ -148,7 +148,7 @@ button {
 }
 
 button:hover {
-    text-shadow: 0 0 2px #3fff5f;   
+    text-shadow: 0 0 2px #3fff5f;
 }
 
 #pentacle-protocol {
@@ -254,5 +254,23 @@ input[type=number] {
 
     .project-img {
         width: 90%;
+    }
+
+    .input-group select {
+        font-family: monospace;
+        font-size: small;
+        margin-left: 0.5rem;
+        padding-left: 0.5rem;
+
+    }
+
+    .input-group input {
+        font-family: monospace;
+        font-size: medium;
+    }
+
+    .input-group
+    {
+        padding: 3px;
     }
 }
